@@ -25,3 +25,9 @@
 	body.is-preload #header:after {
 		opacity: 0;
 	}
+/*Animation*/
+	.animationContainer {
+		margin: auto;
+		height: auto;
+		min-width: 394px;
+	}

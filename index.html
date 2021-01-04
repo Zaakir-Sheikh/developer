@@ -48,51 +48,55 @@
 								<h2>Skills</h2>
 							</header>
 							<div id="tag"></div>
-							<!--Text Animation-->
-							<script>
-								$(document).ready(function(){
-									var entries = [
-										{label : 'html5'},
-										{label : 'css'},
-										{label : 'javascript'},
-										{label : 'discord.js'},
-										{label : 'php'},
-										{label : 'sql'},
-										{label : 'firebase'},
-										{label : 'C++'},
-										{label : 'json'},
-										{label : 'xml'},
-										{label : 'cordova'},
-										{label : 'jquery'},
-										{label : 'bootstrap'},
-									]
+							<div class="animationContainer">
 
-									var settings = {
-										entries: entries,
-										width: 640,
-										height: 480,
-										radius: '80%',
-										radiusMin: 40,
-										radiusMax: 70,
-										bgDraw: false,
-										bgColor: '#fff',
-										opacityOver: 1.00,
-										opacityOut: 0.2,
-										opacitySpeed: 6,
-										fov: 800,
-										speed: 2,
-										fontFamily: 'Source Sans Pro',
-										fontSize: 30,
-										fontColor: '#fff',
-										fontWeight: 'bold',
-										fontStyle: 'normal',
-										fontSretch: 'normal',
-										fontToUppercase: false,
-										
-									}
-									var svg3DTagCloud = new SVG3DTagCloud( document.getElementById('tag'), settings );
-								})
-							</script>
+								
+								<!--Text Animation-->
+								<script>
+									$(document).ready(function(){
+										var entries = [
+											{label : 'HTML5'},
+											{label : 'css'},
+											{label : 'JavaScript'},
+											{label : 'Discord.js'},
+											{label : 'PHP'},
+											{label : 'SQl'},
+											{label : 'Firebase'},
+											{label : 'C++'},
+											{label : '.json'},
+											{label : 'xml'},
+											{label : 'cordova'},
+											{label : 'jquery'},
+											{label : 'bootstrap'},
+										]
+
+										var settings = {
+											entries: entries,
+											width: 640,
+											height: 480,
+											radius: '80%',
+											radiusMin: 20,
+											radiusMax: 70,
+											bgDraw: false,
+											bgColor: '#fff',
+											opacityOver: 1.00,
+											opacityOut: 0.2,
+											opacitySpeed: 6,
+											fov: 700,
+											speed: 2,
+											fontFamily: 'Source Sans Pro',
+											fontSize: 30,
+											fontColor: '#fff',
+											fontWeight: 'bold',
+											fontStyle: 'normal',
+											fontSretch: 'normal',
+											fontToUppercase: false,
+
+										}
+										var svg3DTagCloud = new SVG3DTagCloud( document.getElementById('tag'), settings );
+									})
+								</script>
+							</div>
 						</div>
 					</div>
 				</div>
