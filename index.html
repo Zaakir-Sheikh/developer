@@ -15,6 +15,11 @@
 		<script  src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 		<script  src="assets/js/jquery.js"></script>
 		<script  src="assets/js/3Dtag.min.js"></script>
+		<script  src="assets/js/contact.js"></script>
+		<script src="assets/js/sweetalert2@10.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+		<script src="assets/js/firebase.js"></script>
 	</head>
 	<body class="is-preload">
 
@@ -66,6 +71,7 @@
 											{label : 'cordova', url: '', target: '_self'},
 											{label : 'jquery', url: '', target: '_self'},
 											{label : 'bootstrap', url: '', target: '_self'},
+											{label : 'UI & UX', url: '', target: '_self'},
 										]
 									
 										var settings = {
@@ -111,23 +117,22 @@
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
-									<input type="text" name="txtName" class="form-control" placeholder="Your Name *" value="" />
+									<input type="text" name="txtName" class="form-control" placeholder="Your Name *" value="" required id="msgName"/>
 								</div>
 								<div class="form-group">
-									<input type="text" name="txtEmail" class="form-control" placeholder="Your Email *" value="" />
+									<input type="text" name="txtEmail" class="form-control" placeholder="Your Email *" value="" required id="msgEmail"/>
 								</div>
 								<div class="form-group">
-									<input type="text" name="txtPhone" class="form-control" placeholder="Your Phone Number *" value="" />
+									<input type="text" name="txtPhone" class="form-control" placeholder="Your Phone Number" value="" id="msgPhoneNumber"/>
 								</div>
-								
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<textarea name="txtMsg" class="form-control" placeholder="Your Message *" style="width: 100%; height: 150px;"></textarea>
+									<textarea name="Message" class="form-control" placeholder="Your Message *" style="width: 100%; height: 150px;" required id="MsgMsg"></textarea>
 								</div>
 							</div>
 							<div class="form-group">
-								<input type="submit" name="btnSubmit" class="btnContact" value=" S e n d Message"/>
+								<input type="submit" name="btnSubmit" class="btnContact" value=" S e n d Message" onclick="sendMsg()"/>
 							</div>
 						</div>
 					</div>
@@ -137,7 +142,7 @@
 			<section id="footer">
 				<ul class="icons">
 					<li><a href="https://github.com/ZSmaster1" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-					<li><a href="contact.html" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+					<li><a href="#three" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
 				</ul>
 			</section>
 
