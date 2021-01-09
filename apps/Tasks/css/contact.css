@@ -1,0 +1,24 @@
+.formInput {
+    width: 220px;
+    height: 30px;
+    border: 1px solid #cccccc;
+    border-radius: 40px;
+    margin: 10px;
+    padding: 0;
+    font-family: 'Ubuntu';
+}
+
+.formInput:focus {
+    border: 1px solid rgb(40, 179, 40);
+}
+
+.ElementContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.message {
+    border: 2px solid #cccccc;
+    border-radius: 20px;
+    font-family: 'Ubuntu';
+}

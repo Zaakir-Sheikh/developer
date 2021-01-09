@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+
+.button-contact {
+    background-color: #803dd8;
+    font-family: 'poppins', 'roboto';
+    color: #ffffff;
+    border-radius: 10%;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 15px;
+    float: right;
+}
+
+.button-logout {
+    background-color: #803dd8;
+    font-family: 'poppins', 'roboto';
+    color: #ffffff;
+    border-radius: 10%;
+    margin-top: 10px;
+    margin-left: 10px;
+    float: left;
+    margin-left: 15px;
+}
+
+.inputDiv{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.input{
+    padding: 0.5rem 1rem;
+    outline: none;
+    border: #ffffffb7;
+    height: 50px;
+    border-radius: 25px;
+    width: 350px;
+    margin: 0.25rem;
+    transition: .5s;
+    font-size: 1.15rem;
+    border: 1px solid #ddd;
+    margin-top: 55px;
+}
+
+.add{
+	outline: none;
+    border: none;
+    height: 50px;
+    border-radius: 25px;
+    width: 50px;
+    background-color: lime;
+    color: white;
+    cursor: pointer;
+    transition: .5s;
+    margin: 0.25rem;
+    margin-top: 55px;
+}
+
+.add:hover{
+	opacity: 0.6;
+}
+
+.list {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poopins', 'roboto';
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    background: #ffffff;
+    width: 350px;
+}
+
+.list ul {
+    position: relative;
+    padding: 20px;
+}
+
+.list ul li {
+    position: relative;
+    list-style: none;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.list ul li:last-child {
+    border-bottom: none;
+}
+
+.list ul li label {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list ul li label input {
+    visibility: hidden;
+    appearance: none;
+}
+
+.list ul li label p {
+    position: absolute;
+}
+
+.list ul li label span {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #cccccc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list ul li label span:before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    width: 10px;
+    height: 5px;
+    border-left: 2px solid #cccccc;
+    border-bottom: 2px solid #cccccc;
+    transform: rotate(-40deg);
+}
+
+.list ul li label input:checked ~ p{
+    text-decoration: line-through;
+    color: #cccccc;
+}
+
+.list ul li label input:checked ~ span {
+    background: #03a9f4;
+    border: 1px solid #03a9f4;
+}
+
+.list ul li label input:checked ~ span::before {
+    border-left: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+}
+
+.list ul li label span button {
+    margin-right: 80px;
+}
