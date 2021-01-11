@@ -269,6 +269,7 @@ function addItem() {
 }
 
 function loadAll() {
+  checkIfUserIsLoggedOut()
   clearInput()
   firebase.auth().onAuthStateChanged(function(user) {
     if(user){
@@ -345,6 +346,14 @@ function checkIfUserIsLoggedIn() {
   firebase.auth().onAuthStateChanged((user) => {
     if(user) {
       window.location = "to-do-list.html"
+    }
+  })
+}
+
+function checkIfUserIsLoggedOut() {
+  firebase.auth().onAuthStateChanged((user) => {
+    if(user) {
+      window.location = "index.html"
     }
   })
 }
