@@ -177,7 +177,6 @@ function addItem() {
       let filteredItem = item.replace(/\s/g, '');
       if(filteredItem.length == 0){
         item = ''
-        console.log(item, filteredItem);
       }
       if(!item) {
         Swal.fire({
