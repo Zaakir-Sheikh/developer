@@ -267,6 +267,7 @@ function addItem() {
 }
 
 function loadAll() {
+  clearInput()
   firebase.auth().onAuthStateChanged(function(user) {
     if(user){
       let todos = [];
@@ -334,5 +335,6 @@ function clearAll() {
 }
 
 function clearInput() {
-  
+  let inputDiv = document.getElementById('inputItem');
+  inputDiv.value = '';
 }
