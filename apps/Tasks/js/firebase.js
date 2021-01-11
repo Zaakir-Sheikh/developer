@@ -269,7 +269,6 @@ function addItem() {
 }
 
 function loadAll() {
-  checkIfUserIsLoggedOut()
   clearInput()
   firebase.auth().onAuthStateChanged(function(user) {
     if(user){
