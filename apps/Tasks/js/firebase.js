@@ -176,6 +176,10 @@ function addItem() {
   firebase.auth().onAuthStateChanged(function(user) {
     if(user){
       let item = document.getElementById("inputItem").value;
+      let filteredItem = item.replace(/\s/g, '1');
+      if(filteredItem.length !== 0){
+        item = ''
+      }
       if(!item) {
         Swal.fire({
           title: `Please enter a task`,
@@ -255,7 +259,7 @@ function addItem() {
                 clearInterval(timerInterval)
               }
             }).then((result) => {
-              window.location="to-do-list.html"
+              clearInput();
             })
           });
         }
