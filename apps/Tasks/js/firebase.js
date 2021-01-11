@@ -174,9 +174,10 @@ function addItem() {
   firebase.auth().onAuthStateChanged(function(user) {
     if(user){
       let item = document.getElementById("inputItem").value;
-      let filteredItem = item.replace(/\s/g, '1');
-      if(filteredItem.length !== 0){
+      let filteredItem = item.replace(/\s/g, '');
+      if(filteredItem.length == 0){
         item = ''
+        console.log(item, filteredItem);
       }
       if(!item) {
         Swal.fire({
@@ -222,7 +223,7 @@ function addItem() {
             clearInterval(timerInterval)
           }
         }).then((result) => {
-          window.location="to-do-list.html"
+          clearInput();
           return;
         })
       } else {
