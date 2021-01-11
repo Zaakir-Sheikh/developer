@@ -352,7 +352,7 @@ function checkIfUserIsLoggedIn() {
 
 function checkIfUserIsLoggedOut() {
   firebase.auth().onAuthStateChanged((user) => {
-    if(user) {
+    if(!user) {
       window.location = "index.html"
     }
   })
