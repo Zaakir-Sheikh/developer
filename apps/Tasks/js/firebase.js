@@ -326,15 +326,3 @@ function deleteTask(clicked_id) {
     }
   })
 }
-
-function contactPageRedirect() {
-  firebase.auth().onAuthStateChanged(function(user) {
-    if(user) {
-      window.location="contact.html";
-      return;
-    } else {
-      window.location="index.html";
-      return;
-    }
-  })
-}

@@ -1,17 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
 
-.button-contact {
-    background-color: #803dd8;
-    font-family: 'poppins', 'roboto';
-    color: #ffffff;
-    border-radius: 10%;
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 15px;
-    float: right;
-}
-
 .button-logout {
     background-color: #803dd8;
     font-family: 'poppins', 'roboto';
@@ -19,7 +8,6 @@
     border-radius: 10%;
     margin-top: 10px;
     margin-left: 10px;
-    float: left;
     margin-left: 15px;
 }
 
@@ -40,7 +28,6 @@
     transition: .5s;
     font-size: 1.15rem;
     border: 1px solid #ddd;
-    margin-top: 55px;
 }
 
 .add{
@@ -54,7 +41,6 @@
     cursor: pointer;
     transition: .5s;
     margin: 0.25rem;
-    margin-top: 55px;
 }
 
 .add:hover{
