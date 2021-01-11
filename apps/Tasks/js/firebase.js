@@ -166,8 +166,6 @@ function logout() {
     if(user){
       firebase.auth().signOut();
       window.location="index.html"
-    } else {
-      window.location="index.html"
     }
   })
 }
@@ -341,4 +339,12 @@ function clearAll() {
 function clearInput() {
   let inputDiv = document.getElementById('inputItem');
   inputDiv.value = '';
+}
+
+function checkIfUserIsLoggedIn() {
+  firebase.auth().onAuthStateChanged((user) => {
+    if(user) {
+      window.location = "to-do-list.html"
+    }
+  })
 }
