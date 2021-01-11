@@ -232,7 +232,8 @@ function addItem() {
             identifier: id,
           })
           .then(function() {
-            window.location="to-do-list.html" //do this to trigger the loadAll function without overwriting the html
+            clearAll()
+            loadAll()
           })
           .catch(function(error) {
             Swal.fire({
@@ -297,7 +298,8 @@ function deleteTask(clicked_id) {
   firebase.auth().onAuthStateChanged(function(user) {
     if(user){
       db.collection(user.uid).doc(taskID).delete().then(() => {
-        window.location="to-do-list.html"
+        clearAll()
+        loadAll()
       }).catch(function(error){
         Swal.fire({
           title: `error: ${error}`,
@@ -325,4 +327,12 @@ function deleteTask(clicked_id) {
       window.location="index.html"
     }
   })
+}
+
+function clearAll() {
+  $(".todoUl").empty();
+}
+
+function clearInput() {
+  
 }
