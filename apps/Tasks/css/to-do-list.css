@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
 
+* {
+    overflow-y: hidden;
+}
+
+body {
+    overflow-y: hidden;
+}
+
 .button-logout {
     background-color: #803dd8;
     font-family: 'poppins', 'roboto';
@@ -9,6 +17,13 @@
     margin-top: 10px;
     margin-left: 10px;
     margin-left: 15px;
+}
+
+.button-refresh {
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-right: 15px;
 }
 
 .inputDiv{

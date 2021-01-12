@@ -348,3 +348,9 @@ function checkIfUserIsLoggedIn() {
     }
   })
 }
+
+function refresh() {
+  clearAll()
+  clearInput()
+  loadAll();
+}
