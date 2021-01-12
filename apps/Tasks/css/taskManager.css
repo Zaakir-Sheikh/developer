@@ -52,6 +52,16 @@
 @media screen and (max-width:1200px) {
     .box {
         width: 40%;
+        height: 130px;
+        margin: 10px;
+    }
+
+    .box.mon {
+        background-image: url(../img/monday2.jpg);
+    }
+
+    .box.tues {
+        background-image: url(../img/tuesday2.jpg);
     }
 }
 
