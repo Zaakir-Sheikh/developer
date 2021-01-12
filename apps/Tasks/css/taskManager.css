@@ -94,8 +94,16 @@
     }
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:1200px) {
     .box {
         width: 90%;
+        height: 160px;
+    }
+
+    .dayTxt p {
+        font-family: 'Poppins';
+        margin-left: 10px;
+        font-size: 29px;
+        margin-top: 10px;
     }
 }
