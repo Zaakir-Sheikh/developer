@@ -1,14 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
 
-* {
-    overflow-y: hidden;
-}
-
-body {
-    overflow-y: hidden;
-}
-
 .button-logout {
     background-color: #803dd8;
     font-family: 'poppins', 'roboto';
@@ -145,5 +137,5 @@ body {
 }
 
 .list ul li label span button {
-    margin-right: 80px;
+    margin-right: 90px;
 }
