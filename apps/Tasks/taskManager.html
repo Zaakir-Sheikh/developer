@@ -15,55 +15,78 @@
     </head>
     <body>
         <div class="container">
-            <div class="box mon">
+            <div class="box mon" onclick="monRedirect()">
                 <span class="dayTxt">
                     <p>
                         Monday
                     </p>
                 </span>
             </div>
-            <div class="box tues">
+            <div class="box tues" onclick="tuesRedirect()">
                 <span class="dayTxt">
                     <p>
                         Tuesday
                     </p>
                 </span>
             </div>
-            <div class="box wed">
+            <div class="box wed" onclick="wedRedirect()">
                 <span class="dayTxt">
                     <p>
                         Wednesday
                     </p>
                 </span>
             </div>
-            <div class="box thurs">
+            <div class="box thurs" onclick="thursRedirect()">
                 <span class="dayTxt">
                     <p>
                         Thursday
                     </p>
                 </span>
             </div>
-            <div class="box fri">
+            <div class="box fri" onclick="friRedirect()">
                 <span class="dayTxt">
                     <p>
                         Friday
                     </p>
                 </span>
             </div>
-            <div class="box sat">
+            <div class="box sat" onclick="satRedirect()">
                 <span class="dayTxt">
                     <p>
                         Saturday
                     </p>
                 </span>
             </div>
-            <div class="box sun">
+            <div class="box sun" onclick="sunRedirect()">
                 <span class="dayTxt">
                     <p>
                         Sunday
                     </p>
                 </span>
             </div>
+            <script>
+                function monRedirect() {
+                    window.location = "monday.html"
+                }
+                function tuesRedirect() {
+                    window.location = "tuesday.html"
+                }
+                function wedRedirect() {
+                    window.location = "wednesday.html"
+                }
+                function thursRedirect() {
+                    window.location = "thursday.html"
+                }
+                function friRedirect() {
+                    window.location = "friday.html"
+                }
+                function satRedirect() {
+                    window.location = "saturday.html"
+                }
+                function sunRedirect() {
+                    window.location = "sunday.html"
+                }
+            </script>
         </div>
     </body>
 </html>

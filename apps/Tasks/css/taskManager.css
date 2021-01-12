@@ -54,6 +54,7 @@
         width: 40%;
         height: 130px;
         margin: 10px;
+        border-radius: 10px;
     }
 
     .box.mon {
@@ -82,8 +83,7 @@
     
     .box.sun {
         background-image: url(../img/sunday2.jpg);
-    }
-    
+    }    
 }
 
 @media screen and (max-width:600px) {
