@@ -16,13 +16,13 @@
     margin-right: 15px;
 }
 
-.inputDiv{
+.inputDiv {
 	display: flex;
 	justify-content: center;
     align-items: center;
 }
 
-.input{
+.input {
     padding: 0.5rem 1rem;
     outline: none;
     border: #ffffffb7;
@@ -35,7 +35,7 @@
     border: 1px solid #ddd;
 }
 
-.add{
+.add {
 	outline: none;
     border: none;
     height: 50px;
@@ -48,7 +48,7 @@
     margin: 0.25rem;
 }
 
-.add:hover{
+.add:hover {
 	opacity: 0.6;
 }
 
