@@ -45,6 +45,8 @@
 .box {
     width: 90%;
     height: 160px;
+    margin: 10px;
+    border-radius: 10px;
 }
 
 .dayTxt p {
@@ -53,14 +55,6 @@
     font-size: 29px;
     margin-top: 10px;
 }
-
-.dayTxt p {
-    font-family: 'Poppins';
-    margin-left: 10px;
-    font-size: 29px;
-    margin-top: 10px;
-}
-
 
 @media screen and (max-width:1200px) {
     .box {
