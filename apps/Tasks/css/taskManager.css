@@ -10,43 +10,36 @@
     flex-flow: wrap;
 }
 
-.box {
-    width: 20%;
-    height: 300px;
-    margin: 20px;
-    box-sizing: border-box;
-}
-
 .box:hover {
     cursor: pointer;
 }
 
 .box.mon {
-    background-image: url(../img/monday.jpg);
+    background-image: url(../img/monday2.jpg);
 }
 
 .box.tues {
-    background-image: url(../img/tuesday.jpg);
+    background-image: url(../img/tuesday2.jpg);
 }
 
 .box.wed {
-    background-image: url(../img/wednesday.jpg);
+    background-image: url(../img/wednesday2.jpg);
 }
 
 .box.thurs {
-    background-image: url(../img/thursday.jpg);
+    background-image: url(../img/thursday2.jpg);
 }
 
 .box.fri {
-    background-image: url(../img/friday.jpg);
+    background-image: url(../img/friday2.jpg);
 }
 
 .box.sat {
-    background-image: url(../img/saturday.jpg);
+    background-image: url(../img/saturday2.jpg);
 }
 
 .box.sun {
-    background-image: url(../img/sunday.jpg);
+    background-image: url(../img/sunday2.jpg);
 }
 
 .box {
