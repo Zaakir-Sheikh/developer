@@ -52,7 +52,7 @@
 .dayTxt p {
     font-family: 'Poppins';
     margin-left: 10px;
-    font-size: 23px;
+    font-size: 29px;
     margin-top: 10px;
 }
 
@@ -94,7 +94,7 @@
     }
 }
 
-@media screen and (max-width:1200px) {
+@media screen and (max-width:9998px) {
     .box {
         width: 90%;
         height: 160px;
