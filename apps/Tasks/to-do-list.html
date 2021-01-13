@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>to-do-list.html</title>
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <meta name="color-scheme" content="light dark">
@@ -12,23 +11,82 @@
         <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
         <script src="js/jquery.js"></script>
         <script src="js/firebase.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-        <link href="css/to-do-list.css" rel="stylesheet">
+        <link href="css/taskManager.css" rel="stylesheet">
     </head>
-    <body onload="loadAll()">
-        <div class="buttons">
-            <button onclick="logout()" class="button-logout"> Sign out </button>
-            <button onclick="refresh()" class="button-refresh"> <i class="fas fa-sync"></i> </button>
-        </div>
-        <div class="inputDiv">
-            <input type="text" class="input" placeholder="What Do You Want to Do..." id="inputItem">
-            <button class="add" onclick="addItem()"><i class="fas fa-plus"></i></button>
-        </div>
-        <div class="list">
-            <ul class="todoUl">
-                
-            </ul>
+    <body onload="checkIfUserIsLoggedOut()">
+        <div class="container">
+            <div class="box mon" onclick="monRedirect()">
+                <span class="dayTxt">
+                    <p>
+                        Monday
+                    </p>
+                </span>
+            </div>
+            <div class="box tues" onclick="tuesRedirect()">
+                <span class="dayTxt">
+                    <p>
+                        Tuesday
+                    </p>
+                </span>
+            </div>
+            <div class="box wed" onclick="wedRedirect()">
+                <span class="dayTxt">
+                    <p>
+                        Wednesday
+                    </p>
+                </span>
+            </div>
+            <div class="box thurs" onclick="thursRedirect()">
+                <span class="dayTxt">
+                    <p>
+                        Thursday
+                    </p>
+                </span>
+            </div>
+            <div class="box fri" onclick="friRedirect()">
+                <span class="dayTxt">
+                    <p>
+                        Friday
+                    </p>
+                </span>
+            </div>
+            <div class="box sat" onclick="satRedirect()">
+                <span class="dayTxt">
+                    <p>
+                        Saturday
+                    </p>
+                </span>
+            </div>
+            <div class="box sun" onclick="sunRedirect()">
+                <span class="dayTxt">
+                    <p>
+                        Sunday
+                    </p>
+                </span>
+            </div>
+            <script>
+                function monRedirect() {
+                    window.location = "monday.html"
+                }
+                function tuesRedirect() {
+                    window.location = "tuesday.html"
+                }
+                function wedRedirect() {
+                    window.location = "wednesday.html"
+                }
+                function thursRedirect() {
+                    window.location = "thursday.html"
+                }
+                function friRedirect() {
+                    window.location = "friday.html"
+                }
+                function satRedirect() {
+                    window.location = "saturday.html"
+                }
+                function sunRedirect() {
+                    window.location = "sunday.html"
+                }
+            </script>
         </div>
     </body>
 </html>

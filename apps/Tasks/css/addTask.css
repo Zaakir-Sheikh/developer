@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+.taskInput {
+    width: 90%;
+    border: 2px solid #aaaaaa;
+    border-radius: 4px;
+    margin: 8px 0;
+    outline: none;
+    padding: 0;
+    box-sizing: border-box;
+    height: 40px;
+    transition: 0.1s;
+}
+
+.taskInput:focus {
+    font-size: 17px;
+    border-color: dodgerblue;
+    box-shadow: 0 0 1px 0 dodgerblue;
+}
+
+.inputContainer {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    margin-top: 30px;
+    font-family: 'Poppins';
+}
+
+.Title {
+    font-family: 'Poppins';
+    margin: 0;
+    margin-left: 20px;
+}
+
+.optionsContainer {
+    margin-top: 20px;
+    margin-left: 17px;
+    font-family: 'Poppins';
+}
+
+.options {
+    margin-bottom: 3px;
+}
+
+.checkbox {
+    zoom: 1.3;
+}

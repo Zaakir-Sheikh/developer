@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+        <script src="js/jquery.js"></script>
+        <script src="js/firebase.js"></script>
+        <script src="js/uuidv4.js"></script>
+        <link rel="stylesheet" href="css/addTask.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    </head>
+    <body>
+        <div class="iconContainer">
+            <i class="fas fa-times" onclick="taskClose()"></i>
+            <script>
+                function taskClose() {
+                    window.location = "to-do-list.html"
+                }
+            </script>
+        </div>
+        <div class="Title">
+            <h2>Add a Task</h2>
+        </div>
+        <div class="inputContainer">
+            <input type="text" placeholder=" Enter Task Here" class="taskInput" id="inputItem">
+        </div>
+        <div class="optionsContainer">
+            <div class="options">
+                <input type="checkbox" id="checkMon" class="checkbox">
+                <label for="checkMon">Monday</label>
+            </div>
+            <div class="options">
+                <input type="checkbox" id="checkTues" class="checkbox">
+                <label for="checkTues">Tuesday</label>
+            </div>
+            <div class="options">
+                <input type="checkbox" id="checkWed" class="checkbox">
+                <label for="checkWed">Wednesday</label>
+            </div>
+            <div class="options">
+                <input type="checkbox" id="checkThurs" class="checkbox">
+                <label for="checkThurs">Thursday</label>
+            </div>
+            <div class="options">
+                <input type="checkbox" id="checkFri" class="checkbox">
+                <label for="checkFri">Friday</label>
+            </div>
+            <div class="options">
+                <input type="checkbox" id="checkSat" class="checkbox">
+                <label for="checkSat">Saturday</label>
+            </div>
+            <div class="options">
+                <input type="checkbox" id="checkSun" class="checkbox">
+                <label for="checkSun">Sunday</label>
+            </div>
+        </div>
+    </body>
+</html>

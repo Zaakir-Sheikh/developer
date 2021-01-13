@@ -136,4 +136,6 @@
 
 .list ul li label span button {
     margin-right: 90px;
+    height: auto;
+    width: auto;
 }

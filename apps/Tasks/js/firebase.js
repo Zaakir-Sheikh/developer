@@ -173,8 +173,37 @@ function logout() {
 function addItem() {
   firebase.auth().onAuthStateChanged(function(user) {
     if(user){
+      let days = [];
       let item = document.getElementById("inputItem").value;
       let filteredItem = item.replace(/\s/g, '');
+      let monday = document.getElementById("checkMon").checked;
+      let tuesday = document.getElementById("checkTues").checked;
+      let wednesday = document.getElementById("checkWed").checked;
+      let thursday = document.getElementById("checkThurs").checked;
+      let friday = document.getElementById("checkFri").checked;
+      let saturday = document.getElementById("checkSat").checked;
+      let sunday = document.getElementById("checkSun").checked;
+      if(monday === true) {
+        days.push('monday');
+      }
+      if(tuesday === true) {
+        days.push('tuesday');
+      }
+      if(wednesday === true) {
+        days.push('wednesday');
+      }
+      if(thursday === true) {
+        days.push('thursday');
+      }
+      if(friday === true) {
+        days.push('friday');
+      }
+      if(saturday === true) {
+        days.push('saturday');
+      }
+      if(sunday === true) {
+        days.push('sunday');
+      }
       if(filteredItem.length == 0){
         item = ''
       }
@@ -201,8 +230,7 @@ function addItem() {
           refresh()
           return;
         })
-      }
-      if(item.length > 40){
+      } else if(item.length > 40){
         Swal.fire({
           title: `Task must be shorter than 40 characters`,
           timer: 10000,
@@ -225,13 +253,36 @@ function addItem() {
           clearInput();
           return;
         })
-      } else {
+      } else if (days.length === 0 || days.length === undefined) {
+        Swal.fire({
+          title: `Please select one or more days`,
+          timer: 10000,
+          timerProgressBar: true,
+          didOpen: () => {
+            timerInterval = setInterval(() => {
+              const content = Swal.getContent()
+              if (content) {
+                const b = content.querySelector('b')
+                if (b) {
+                  b.textContent = Swal.getTimerLeft()
+                }
+              }
+            }, 100)
+          },
+          willClose: () => {
+            clearInterval(timerInterval)
+          }
+        }).then((result) => {
+          return;
+        })
+      } else{
         let id = uuidv4();
         if(item && id){
           db.collection(user.uid).doc(id).set({
             name: item,
             isCompleted: false,
             identifier: id,
+            days: days,
           })
           .then(function() {
             clearAll()
@@ -269,31 +320,13 @@ function addItem() {
 }
 
 function loadAll() {
-  clearInput()
-  firebase.auth().onAuthStateChanged(function(user) {
-    if(user){
-      let todos = [];
-      let renderTodos = function(){
-        db.collection(user.uid).get().then(data => {
-          data.docs.forEach(element => {
-            const singleTodo = element.data();
-            todos.push(singleTodo);
-          });
-          createList(todos);
-        })
-      }
-      renderTodos();
-
-    } else {
-      window.location="index.html";
-    }
-
-    const createList = function(todos){
-      todos.forEach(element => {
-        $('.todoUl').append('<li> <label> <input type="checkbox" name=""> <p>' + element.name + '</p> <span> <button onclick="deleteTask(this.id)" id="' + element.identifier +'"> <i class="far fa-trash-alt"> </i> </button> </span> </label> </li>');
-      })
-    }
-  })
+  loadMonday()
+  loadTuesday()
+  loadWednesday()
+  loadThursday()
+  loadFriday()
+  loadSaturday()
+  loadSunday()
 }
 
 function deleteTask(clicked_id) {
@@ -304,27 +337,8 @@ function deleteTask(clicked_id) {
         clearAll()
         loadAll()
       }).catch(function(error){
-        Swal.fire({
-          title: `error: ${error}`,
-          timer: 10000,
-          timerProgressBar: true,
-          didOpen: () => {
-            timerInterval = setInterval(() => {
-              const content = Swal.getContent()
-              if (content) {
-                const b = content.querySelector('b')
-                if (b) {
-                  b.textContent = Swal.getTimerLeft()
-                }
-              }
-            }, 100)
-          },
-          willClose: () => {
-            clearInterval(timerInterval)
-          }
-        }).then((result) => {
-          refresh()
-        })
+        clearAll()
+        loadAll()
       })
     } else {
       window.location="index.html"
@@ -333,7 +347,13 @@ function deleteTask(clicked_id) {
 }
 
 function clearAll() {
-  $(".todoUl").empty();
+  $(".mondayUL").empty();
+  $(".tuesdayUL").empty();
+  $(".wednesdayUL").empty();
+  $(".thursdayUL").empty();
+  $(".fridayUL").empty();
+  $(".saturdayUL").empty();
+  $(".sundayUL").empty();
 }
 
 function clearInput() {
@@ -359,7 +379,6 @@ function checkIfUserIsLoggedOut() {
 
 function refresh() {
   clearAll()
-  clearInput()
   loadAll();
 }
 
@@ -384,7 +403,183 @@ function loadMonday() {
 
     const createList = function(todos){
       todos.forEach(element => {
-        $('.mondayUL').append('<li> <label> <input type="checkbox" name=""> <p>' + element.name + '</p> <span> <button onclick="deleteTask(this.id)" id="' + element.identifier +'"> <i class="far fa-trash-alt"> </i> </button> </span> </label> </li>');
+        if(element.days.includes('monday')) {
+          $('.mondayUL').append('<li> <label> <input type="checkbox" name=""> <p style="color: black;">' + element.name + '</p> <span> <button onclick="deleteTask(this.id)" id="' + element.identifier +'"> delete </button> </span> </label> </li>');
+        }
+      })
+    }
+  })
+}
+
+function loadTuesday() {
+  firebase.auth().onAuthStateChanged(function(user) {
+    if(user){
+      let todos = [];
+      let renderTodos = function(){
+        db.collection(user.uid).get().then(data => {
+          data.docs.forEach(element => {
+            const singleTodo = element.data();
+            todos.push(singleTodo);
+          });
+          createList(todos);
+        })
+      }
+      renderTodos();
+
+    } else {
+      window.location="index.html";
+    }
+
+    const createList = function(todos){
+      todos.forEach(element => {
+        if(element.days.includes('tuesday')) {
+          $('.tuesdayUL').append('<li> <label> <input type="checkbox" name=""> <p style="color: black;">' + element.name + '</p> <span> <button onclick="deleteTask(this.id)" id="' + element.identifier +'"> delete </button> </span> </label> </li>');
+        }
+      })
+    }
+  })
+}
+
+function loadWednesday() {
+  firebase.auth().onAuthStateChanged(function(user) {
+    if(user){
+      let todos = [];
+      let renderTodos = function(){
+        db.collection(user.uid).get().then(data => {
+          data.docs.forEach(element => {
+            const singleTodo = element.data();
+            todos.push(singleTodo);
+          });
+          createList(todos);
+        })
+      }
+      renderTodos();
+
+    } else {
+      window.location="index.html";
+    }
+
+    const createList = function(todos){
+      todos.forEach(element => {
+        if(element.days.includes('wednesday')) {
+          $('.wednesdayUL').append('<li> <label> <input type="checkbox" name=""> <p style="color: black;">' + element.name + '</p> <span> <button onclick="deleteTask(this.id)" id="' + element.identifier +'"> delete </button> </span> </label> </li>');
+        }
+      })
+    }
+  })
+}
+
+function loadThursday() {
+  firebase.auth().onAuthStateChanged(function(user) {
+    if(user){
+      let todos = [];
+      let renderTodos = function(){
+        db.collection(user.uid).get().then(data => {
+          data.docs.forEach(element => {
+            const singleTodo = element.data();
+            todos.push(singleTodo);
+          });
+          createList(todos);
+        })
+      }
+      renderTodos();
+
+    } else {
+      window.location="index.html";
+    }
+
+    const createList = function(todos){
+      todos.forEach(element => {
+        if(element.days.includes('thursday')) {
+          $('.thursdayUL').append('<li> <label> <input type="checkbox" name=""> <p style="color: black;">' + element.name + '</p> <span> <button onclick="deleteTask(this.id)" id="' + element.identifier +'"> delete </button> </span> </label> </li>');
+        }
+      })
+    }
+  })
+}
+
+function loadFriday() {
+  firebase.auth().onAuthStateChanged(function(user) {
+    if(user){
+      let todos = [];
+      let renderTodos = function(){
+        db.collection(user.uid).get().then(data => {
+          data.docs.forEach(element => {
+            const singleTodo = element.data();
+            todos.push(singleTodo);
+          });
+          createList(todos);
+        })
+      }
+      renderTodos();
+
+    } else {
+      window.location="index.html";
+    }
+
+    const createList = function(todos){
+      todos.forEach(element => {
+        if(element.days.includes('friday')) {
+          $('.fridayUL').append('<li> <label> <input type="checkbox" name=""> <p style="color: black;">' + element.name + '</p> <span> <button onclick="deleteTask(this.id)" id="' + element.identifier +'"> delete </button> </span> </label> </li>');
+        }
+      })
+    }
+  })
+}
+
+function loadSaturday() {
+  firebase.auth().onAuthStateChanged(function(user) {
+    if(user){
+      let todos = [];
+      let renderTodos = function(){
+        db.collection(user.uid).get().then(data => {
+          data.docs.forEach(element => {
+            const singleTodo = element.data();
+            todos.push(singleTodo);
+          });
+          createList(todos);
+        })
+      }
+      renderTodos();
+
+    } else {
+      window.location="index.html";
+    }
+
+    const createList = function(todos){
+      todos.forEach(element => {
+        if(element.days.includes('saturday')) {
+          $('.saturdayUL').append('<li> <label> <input type="checkbox" name=""> <p style="color: black;">' + element.name + '</p> <span> <button onclick="deleteTask(this.id)" id="' + element.identifier +'"> delete </button> </span> </label> </li>');
+        }
+      })
+    }
+  })
+}
+
+function loadSunday() {
+  firebase.auth().onAuthStateChanged(function(user) {
+    if(user){
+      let todos = [];
+      let renderTodos = function(){
+        db.collection(user.uid).get().then(data => {
+          data.docs.forEach(element => {
+            const singleTodo = element.data();
+            todos.push(singleTodo);
+          });
+          createList(todos);
+        })
+      }
+      renderTodos();
+
+    } else {
+      window.location="index.html";
+    }
+
+    const createList = function(todos){
+      todos.forEach(element => {
+        if(element.days.includes('sunday')) {
+          $('.sundayUL').append('<li> <label> <input type="checkbox" name=""> <p style="color: black;">' + element.name + '</p> <span> <button onclick="deleteTask(this.id)" id="' + element.identifier +'"> delete </button> </span> </label> </li>');
+        }
       })
     }
   })
