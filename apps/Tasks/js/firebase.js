@@ -287,6 +287,8 @@ function addItem() {
           .then(function() {
             clearAll()
             loadAll()
+            clearInput()
+            window.location = "to-do-list.html"
           })
           .catch(function(error) {
             Swal.fire({
