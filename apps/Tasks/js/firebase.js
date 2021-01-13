@@ -10,22 +10,6 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 let db = firebase.firestore();
 
-function createDB() {
-  firebase.auth().onAuthStateChanged(function(user) {
-    if(user){
-      if(user.uid){
-        let id = uuidv4();
-        db.collection(user.uid).doc(id).set({
-          isCompleted: false,
-          name: "Delete this",
-          identifier: id,
-        })
-        window.location="to-do-list.html"
-      }
-    }
-  })
-}
-
 function signUp(){
   var email = document.getElementById("email_input").value;
   var password = document.getElementById("password_input").value;
@@ -40,7 +24,9 @@ function signUp(){
 
   firebase.auth().createUserWithEmailAndPassword(email, password)
   .then((user) => {
-      createDB()
+      db.collection(user.uid).doc('settings').set({
+        theme: 'light',
+      })
       let timerInterval
       Swal.fire({
         title: `${email} Signed Up!`,
