@@ -198,7 +198,7 @@ function addItem() {
             clearInterval(timerInterval)
           }
         }).then((result) => {
-          window.location="to-do-list.html"
+          refresh()
           return;
         })
       }
@@ -323,7 +323,7 @@ function deleteTask(clicked_id) {
             clearInterval(timerInterval)
           }
         }).then((result) => {
-          window.location="to-do-list.html"
+          refresh()
         })
       })
     } else {
@@ -361,4 +361,31 @@ function refresh() {
   clearAll()
   clearInput()
   loadAll();
+}
+
+function loadMonday() {
+  firebase.auth().onAuthStateChanged(function(user) {
+    if(user){
+      let todos = [];
+      let renderTodos = function(){
+        db.collection(user.uid).get().then(data => {
+          data.docs.forEach(element => {
+            const singleTodo = element.data();
+            todos.push(singleTodo);
+          });
+          createList(todos);
+        })
+      }
+      renderTodos();
+
+    } else {
+      window.location="index.html";
+    }
+
+    const createList = function(todos){
+      todos.forEach(element => {
+        $('.mondayUL').append('<li> <label> <input type="checkbox" name=""> <p>' + element.name + '</p> <span> <button onclick="deleteTask(this.id)" id="' + element.identifier +'"> <i class="far fa-trash-alt"> </i> </button> </span> </label> </li>');
+      })
+    }
+  })
 }
