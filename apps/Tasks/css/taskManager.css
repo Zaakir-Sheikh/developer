@@ -43,7 +43,8 @@
 }
 
 .box.settings {
-    background-image: url(../img/settingsGears.jpg);
+    background-image: none;
+    background-color: #34c6eb;
 }
 
 .box {
@@ -108,5 +109,11 @@
         margin-left: 10px;
         font-size: 29px;
         margin-top: 10px;
+    }
+}
+
+@media screen and (max-width:694px) {
+    .box.settings {
+        background-image: url(../img/settingsGears.jpg);
     }
 }
