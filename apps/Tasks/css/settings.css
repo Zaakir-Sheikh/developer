@@ -1,0 +1,10 @@
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+* {
+    font-family: 'Poppins';
+}
+
+.Title {
+    font-weight: 400;
+    margin-left: 15px;
+}

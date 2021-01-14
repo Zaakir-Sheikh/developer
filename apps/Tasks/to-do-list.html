@@ -64,6 +64,13 @@
                     </p>
                 </span>
             </div>
+            <div class="box settings" onclick="settingsRedirect()">
+                <span class="dayTxt">
+                    <p>
+                        Settings
+                    </p>
+                </span>
+            </div>
             <script>
                 function monRedirect() {
                     window.location = "monday.html"
@@ -86,6 +93,14 @@
                 function sunRedirect() {
                     window.location = "sunday.html"
                 }
+                function settingsRedirect() {
+                    window.location = "settings.html"
+                }
+            </script>
+            <script>
+                db.collection(user.uid).get().then(data => {
+                    console.log(data);
+                })
             </script>
         </div>
     </body>

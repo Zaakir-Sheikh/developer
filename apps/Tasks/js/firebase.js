@@ -24,38 +24,52 @@ function signUp(){
 
   firebase.auth().createUserWithEmailAndPassword(email, password)
   .then((user) => {
+    if(user.uid) {
       db.collection(user.uid).doc('settings').set({
         theme: 'light',
       })
-      let timerInterval
-      Swal.fire({
-        title: `${email} Signed Up!`,
-        timer: 10000,
-        timerProgressBar: true,
-        didOpen: () => {
-          timerInterval = setInterval(() => {
-            const content = Swal.getContent()
-            if (content) {
-              const b = content.querySelector('b')
-              if (b) {
-                b.textContent = Swal.getTimerLeft()
-              }
-            }
-          }, 100)
-        },
-        willClose: () => {
-          clearInterval(timerInterval)
-        }
-      }).then((result) => {
-          firebase.auth().signInWithEmailAndPassword(email, password);
-          firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-              console.log(`user is signed in`);
-            } else {
-              // No user is signed in.
-            }
-          });
+      .then(function() {
+        console.log("Document successfully written!");
+    })
+    .catch(function(error) {
+        console.error("Error writing document: ", error);
+    });
+    
+    } else {
+      firebase.auth().onAuthStateChanged(function(user) {
+        db.collection(user.uid).doc('settings').set({
+          theme: 'light',
+        })
+        .then(function() {
+          console.log("Document successfully written!");
+        })
+        .catch(function(error) {
+          console.error("Error writing document: ", error);
+        });
       })
+    }
+    let timerInterval
+    Swal.fire({
+      title: `${email} Signed Up!`,
+      timer: 10000,
+      timerProgressBar: true,
+      didOpen: () => {
+        timerInterval = setInterval(() => {
+          const content = Swal.getContent()
+          if (content) {
+            const b = content.querySelector('b')
+            if (b) {
+              b.textContent = Swal.getTimerLeft()
+            }
+          }
+        }, 100)
+      },
+      willClose: () => {
+        clearInterval(timerInterval)
+      }
+    }).then((result) => {
+      firebase.auth().signInWithEmailAndPassword(email, password);
+    })
   })
   .catch((error) => {
     var errorCode = error.code;
@@ -571,4 +585,8 @@ function loadSunday() {
       })
     }
   })
+}
+
+function loadSettings() {
+  
 }

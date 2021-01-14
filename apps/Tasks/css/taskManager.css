@@ -42,6 +42,10 @@
     background-image: url(../img/sunday2.jpg);
 }
 
+.box.settings {
+    background-image: url(../img/settingsGears.jpg);
+}
+
 .box {
     width: 90%;
     height: 160px;
