@@ -8,6 +8,7 @@ var firebaseConfig = {
   appId: "1:298622339525:web:0bf8730e1ba88bcf13a3ac"
 };
 firebase.initializeApp(firebaseConfig);
+var perf = firebase.performance();
 let db = firebase.firestore();
 
 function signUp(){
