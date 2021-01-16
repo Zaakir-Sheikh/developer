@@ -139,3 +139,9 @@
     height: auto;
     width: auto;
 }
+
+.timeTxt {
+    margin-left: 100px;
+    text-decoration: none !important;
+    color: #969494 !important;
+}
