@@ -63,6 +63,11 @@
     background-color: #91b53e;
 }
 
+.box.addTask{
+    background-image: none;
+    background-color: #427ef5;
+}
+
 @media screen and (max-width:9998px) {
     .box {
         width: 90%;
