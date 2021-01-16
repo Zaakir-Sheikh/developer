@@ -170,10 +170,50 @@ function logout() {
   })
 }
 
+function EvaluateMinute(minuteIndex){
+  let result
+  if(minuteIndex === 1){
+    result = '00';
+  } else if(minuteIndex === 2){
+    result = '10'
+  } else if(minuteIndex === 3){
+    result = '20'
+  } else if(minuteIndex === 4){
+    result = '30'
+  } else if(minuteIndex === 5){
+    result = '40'
+  } else if(minuteIndex === 6){
+    result = '50'
+  }
+  return result;
+}
+
+function EvaluateTimeType(timeTypeIndex){
+  let result;
+  if(timeTypeIndex === 1){
+    result = 'AM'
+  } else if(timeTypeIndex === 2){
+    result = 'PM'
+  }
+  return result;
+}
+
+function formatTime(h, m, t){
+  let result;
+  result = h + ':' + m + ' ' + t;
+  return result;
+}
+
+function compileTime(h, m){
+  let result;
+  result = h + m;
+  return result;
+}
+
 function addItem() {
   firebase.auth().onAuthStateChanged(function(user) {
     if(user){
-      let days = [];
+      let days = []
       let item = document.getElementById("inputItem").value;
       let filteredItem = item.replace(/\s/g, '');
       let monday = document.getElementById("checkMon").checked;
@@ -183,6 +223,10 @@ function addItem() {
       let friday = document.getElementById("checkFri").checked;
       let saturday = document.getElementById("checkSat").checked;
       let sunday = document.getElementById("checkSun").checked;
+      let hour = document.getElementById("hour").selectedIndex;
+      let minute = document.getElementById("minute").selectedIndex;
+      let timeType = document.getElementById("timeType").selectedIndex;
+      console.log(minute)
       if(monday === true) {
         days.push('monday');
       }
@@ -207,9 +251,10 @@ function addItem() {
       if(filteredItem.length == 0){
         item = ''
       }
+      
       if(!item) {
         Swal.fire({
-          title: `Please enter a task`,
+          title: `Please fill in everything`,
           timer: 10000,
           timerProgressBar: true,
           didOpen: () => {
@@ -275,7 +320,7 @@ function addItem() {
         }).then((result) => {
           return;
         })
-      } else{
+      } else {
         let id = uuidv4();
         if(item && id){
           db.collection(user.uid).doc(id).set({
@@ -283,6 +328,13 @@ function addItem() {
             isCompleted: false,
             identifier: id,
             days: days,
+            time: {
+              hour: hour,
+              minute: EvaluateMinute(minute),
+              type: EvaluateTimeType(timeType),
+              formatted: formatTime(hour, EvaluateMinute(minute), EvaluateTimeType(timeType)),
+              compiled: compileTime(hour, EvaluateMinute(minute)),
+            }
           })
           .then(function() {
             clearAll()
@@ -585,8 +637,4 @@ function loadSunday() {
       })
     }
   })
-}
-
-function loadSettings() {
-  
 }
