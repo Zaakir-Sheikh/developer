@@ -437,6 +437,12 @@ function refresh() {
   loadAll();
 }
 
+function compileHTML(e){
+  let result;
+  result = '<li> <label> <input type="checkbox" name=""> <p style="color: black;">' + e.name + '</p> <span> <button onclick="deleteTask(this.id)" id="' + e.identifier +'"> delete </button> </span> </label> </li>'
+  return result;
+}
+
 function loadMonday() {
   firebase.auth().onAuthStateChanged(function(user) {
     if(user){
@@ -459,7 +465,7 @@ function loadMonday() {
     const createList = function(todos){
       todos.forEach(element => {
         if(element.days.includes('monday')) {
-          $('.mondayUL').append('<li> <label> <input type="checkbox" name=""> <p style="color: black;">' + element.name + '</p> <span> <button onclick="deleteTask(this.id)" id="' + element.identifier +'"> delete </button> </span> </label> </li>');
+          $('.mondayUL').append(compileHTML(element));
         }
       })
     }
@@ -488,7 +494,7 @@ function loadTuesday() {
     const createList = function(todos){
       todos.forEach(element => {
         if(element.days.includes('tuesday')) {
-          $('.tuesdayUL').append('<li> <label> <input type="checkbox" name=""> <p style="color: black;">' + element.name + '</p> <span> <button onclick="deleteTask(this.id)" id="' + element.identifier +'"> delete </button> </span> </label> </li>');
+          $('.tuesdayUL').append(compileHTML(element));
         }
       })
     }
@@ -517,7 +523,7 @@ function loadWednesday() {
     const createList = function(todos){
       todos.forEach(element => {
         if(element.days.includes('wednesday')) {
-          $('.wednesdayUL').append('<li> <label> <input type="checkbox" name=""> <p style="color: black;">' + element.name + '</p> <span> <button onclick="deleteTask(this.id)" id="' + element.identifier +'"> delete </button> </span> </label> </li>');
+          $('.wednesdayUL').append(compileHTML(element));
         }
       })
     }
@@ -546,7 +552,7 @@ function loadThursday() {
     const createList = function(todos){
       todos.forEach(element => {
         if(element.days.includes('thursday')) {
-          $('.thursdayUL').append('<li> <label> <input type="checkbox" name=""> <p style="color: black;">' + element.name + '</p> <span> <button onclick="deleteTask(this.id)" id="' + element.identifier +'"> delete </button> </span> </label> </li>');
+          $('.thursdayUL').append(compileHTML(element));
         }
       })
     }
@@ -575,7 +581,7 @@ function loadFriday() {
     const createList = function(todos){
       todos.forEach(element => {
         if(element.days.includes('friday')) {
-          $('.fridayUL').append('<li> <label> <input type="checkbox" name=""> <p style="color: black;">' + element.name + '</p> <span> <button onclick="deleteTask(this.id)" id="' + element.identifier +'"> delete </button> </span> </label> </li>');
+          $('.fridayUL').append(compileHTML(element));
         }
       })
     }
@@ -604,7 +610,7 @@ function loadSaturday() {
     const createList = function(todos){
       todos.forEach(element => {
         if(element.days.includes('saturday')) {
-          $('.saturdayUL').append('<li> <label> <input type="checkbox" name=""> <p style="color: black;">' + element.name + '</p> <span> <button onclick="deleteTask(this.id)" id="' + element.identifier +'"> delete </button> </span> </label> </li>');
+          $('.saturdayUL').append(compileHTML(element));
         }
       })
     }
@@ -633,7 +639,7 @@ function loadSunday() {
     const createList = function(todos){
       todos.forEach(element => {
         if(element.days.includes('sunday')) {
-          $('.sundayUL').append('<li> <label> <input type="checkbox" name=""> <p style="color: black;">' + element.name + '</p> <span> <button onclick="deleteTask(this.id)" id="' + element.identifier +'"> delete </button> </span> </label> </li>');
+          $('.sundayUL').append(compileHTML(element));
         }
       })
     }
