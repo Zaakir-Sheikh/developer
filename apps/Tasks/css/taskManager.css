@@ -14,39 +14,6 @@
     cursor: pointer;
 }
 
-.box.mon {
-    background-image: url(../img/monday2.jpg);
-}
-
-.box.tues {
-    background-image: url(../img/tuesday2.jpg);
-}
-
-.box.wed {
-    background-image: url(../img/wednesday2.jpg);
-}
-
-.box.thurs {
-    background-image: url(../img/thursday2.jpg);
-}
-
-.box.fri {
-    background-image: url(../img/friday2.jpg);
-}
-
-.box.sat {
-    background-image: url(../img/saturday2.jpg);
-}
-
-.box.sun {
-    background-image: url(../img/sunday2.jpg);
-}
-
-.box.settings {
-    background-image: none;
-    background-color: #34c6eb;
-}
-
 .box {
     width: 90%;
     height: 160px;
@@ -61,14 +28,56 @@
     margin-top: 10px;
 }
 
-@media screen and (max-width:1200px) {
+.box.mon {
+    background-image: none;
+    background-color: #81e3e0;
+}
+
+.box.tues {
+    background-image: none;
+    background-color: #cfe06c;
+}
+
+.box.wed {
+    background-image: none;
+    background-color: #de9999;
+}
+
+.box.thurs {
+    background-image: none;
+    background-color: #5dcf77;
+}
+
+.box.fri {
+    background-image: none;
+    background-color: #39e4ed;
+}
+
+.box.sat {
+    background-image: none;
+    background-color: #5299a8;
+}
+
+.box.sun {
+    background-image: none;
+    background-color: #91b53e;
+}
+
+@media screen and (max-width:9998px) {
     .box {
-        width: 40%;
-        height: 130px;
-        margin: 10px;
-        border-radius: 10px;
+        width: 90%;
+        height: 160px;
     }
 
+    .dayTxt p {
+        font-family: 'Poppins';
+        margin-left: 10px;
+        font-size: 29px;
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width:960px) {
     .box.mon {
         background-image: url(../img/monday2.jpg);
     }
@@ -95,25 +104,5 @@
     
     .box.sun {
         background-image: url(../img/sunday2.jpg);
-    }
-}
-
-@media screen and (max-width:9998px) {
-    .box {
-        width: 90%;
-        height: 160px;
-    }
-
-    .dayTxt p {
-        font-family: 'Poppins';
-        margin-left: 10px;
-        font-size: 29px;
-        margin-top: 10px;
-    }
-}
-
-@media screen and (max-width:694px) {
-    .box.settings {
-        background-image: url(../img/settingsGears.jpg);
     }
 }
