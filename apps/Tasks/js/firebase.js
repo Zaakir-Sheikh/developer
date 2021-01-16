@@ -276,9 +276,9 @@ function addItem() {
           refresh()
           return;
         })
-      } else if(item.length > 40){
+      } else if(item.length > 14){
         Swal.fire({
-          title: `Task must be shorter than 40 characters`,
+          title: `Task must be shorter than 14 characters`,
           timer: 10000,
           timerProgressBar: true,
           didOpen: () => {
