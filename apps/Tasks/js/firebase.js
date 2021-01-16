@@ -439,7 +439,7 @@ function refresh() {
 
 function compileHTML(e){
   let result;
-  result = '<li> <label> <input type="checkbox" name=""> <p style="color: black;">' + e.name + '</p> <span> <button onclick="deleteTask(this.id)" id="' + e.identifier +'"> delete </button> </span> </label> </li>'
+  result = '<li> <label> <input type="checkbox" name=""> <p style="color: black;">' + e.name + '</p> <p class="timeTxt"> @' + e.time.formatted +' </p> <span> <button onclick="deleteTask(this.id)" id="' + e.identifier +'"> delete </button> </span> </label> </li>'
   return result;
 }
 
