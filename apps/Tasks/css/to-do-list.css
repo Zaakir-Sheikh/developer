@@ -75,6 +75,7 @@
     list-style: none;
     padding: 15px 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
 .list ul li:last-child {
@@ -142,6 +143,7 @@
 
 .timeTxt {
     margin-left: 100px;
+    margin-bottom: 50px;
     text-decoration: none !important;
     color: #969494 !important;
 }
