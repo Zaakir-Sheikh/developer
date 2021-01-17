@@ -21,7 +21,27 @@ messaging.requestPermission()
   console.log(token);
 })
 .catch(function(e) {
-  console.log('error occured: ', e);
+  Swal.fire({
+    title: `Error occured: ${e}`,
+    timer: 10000,
+    timerProgressBar: true,
+    didOpen: () => {
+      timerInterval = setInterval(() => {
+        const content = Swal.getContent()
+        if (content) {
+          const b = content.querySelector('b')
+          if (b) {
+            b.textContent = Swal.getTimerLeft()
+          }
+        }
+      }, 100)
+    },
+    willClose: () => {
+      clearInterval(timerInterval)
+    }
+  }).then((r) => {
+    
+  })
 })
 
 function signUp(){
