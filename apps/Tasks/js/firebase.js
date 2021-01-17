@@ -655,5 +655,37 @@ function loadSunday() {
 }
 
 function startPushJS(){
-
+  const looppjs = function(){
+    firebase.auth().onAuthStateChanged(function(user) {
+      if(user){
+        let todos = [];
+        let renderTodos = function(){
+          db.collection(user.uid).get().then(data => {
+            data.docs.forEach(element => {
+              const singleTodo = element.data();
+              todos.push(singleTodo);
+            });
+            createList(todos);
+          })
+        }
+        renderTodos();
+  
+      } else {
+        window.location="index.html";
+      }
+  
+      const createList = function(todos){
+        todos.forEach(element => {
+          var d = new Date();
+          if(d.getHours() === element.time.hour && d.getMinutes() === element.time.minute){
+            
+          }
+        })
+      }
+    })
+    setTimeout(() => {
+      looppjs();
+    }, 60000);
+  }
+  looppjs();
 }
