@@ -8,8 +8,15 @@ var firebaseConfig = {
   appId: "1:298622339525:web:0bf8730e1ba88bcf13a3ac"
 };
 firebase.initializeApp(firebaseConfig);
-var perf = firebase.performance();
+const perf = firebase.performance();
+let messaging = firebase.messaging();
 let db = firebase.firestore();
+
+messaging.requestPermission().then(function() {
+  console.log('Have permission')
+}).catch(function(e) {
+  console.log('error occured: ', e);
+})
 
 function signUp(){
   var email = document.getElementById("email_input").value;
