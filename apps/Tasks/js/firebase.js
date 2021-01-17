@@ -382,6 +382,7 @@ function loadAll() {
   loadFriday()
   loadSaturday()
   loadSunday()
+  startPushJS()
 }
 
 function deleteTask(clicked_id) {
@@ -444,6 +445,7 @@ function compileHTML(e){
 }
 
 function loadMonday() {
+  startPushJS()
   firebase.auth().onAuthStateChanged(function(user) {
     if(user){
       let todos = [];
@@ -473,6 +475,7 @@ function loadMonday() {
 }
 
 function loadTuesday() {
+  startPushJS()
   firebase.auth().onAuthStateChanged(function(user) {
     if(user){
       let todos = [];
@@ -502,6 +505,7 @@ function loadTuesday() {
 }
 
 function loadWednesday() {
+  startPushJS()
   firebase.auth().onAuthStateChanged(function(user) {
     if(user){
       let todos = [];
@@ -531,6 +535,7 @@ function loadWednesday() {
 }
 
 function loadThursday() {
+  startPushJS()
   firebase.auth().onAuthStateChanged(function(user) {
     if(user){
       let todos = [];
@@ -560,6 +565,7 @@ function loadThursday() {
 }
 
 function loadFriday() {
+  startPushJS()
   firebase.auth().onAuthStateChanged(function(user) {
     if(user){
       let todos = [];
@@ -589,6 +595,7 @@ function loadFriday() {
 }
 
 function loadSaturday() {
+  startPushJS()
   firebase.auth().onAuthStateChanged(function(user) {
     if(user){
       let todos = [];
@@ -618,6 +625,7 @@ function loadSaturday() {
 }
 
 function loadSunday() {
+  startPushJS()
   firebase.auth().onAuthStateChanged(function(user) {
     if(user){
       let todos = [];
@@ -644,4 +652,8 @@ function loadSunday() {
       })
     }
   })
+}
+
+function startPushJS(){
+
 }
