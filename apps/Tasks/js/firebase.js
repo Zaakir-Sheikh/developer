@@ -12,9 +12,15 @@ const perf = firebase.performance();
 let messaging = firebase.messaging();
 let db = firebase.firestore();
 
-messaging.requestPermission().then(function() {
-  console.log('Have permission')
-}).catch(function(e) {
+messaging.requestPermission()
+.then(function() {
+  console.log('Have permission');
+  return messaging.getToken();
+})
+.then(function(token) {
+  console.log(token);
+})
+.catch(function(e) {
   console.log('error occured: ', e);
 })
 
