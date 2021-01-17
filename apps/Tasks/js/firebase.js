@@ -9,40 +9,7 @@ var firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 const perf = firebase.performance();
-let messaging = firebase.messaging();
 let db = firebase.firestore();
-
-messaging.requestPermission()
-.then(function() {
-  console.log('Have permission');
-  return messaging.getToken();
-})
-.then(function(token) {
-  console.log(token);
-})
-.catch(function(e) {
-  Swal.fire({
-    title: `Error occured: ${e}`,
-    timer: 10000,
-    timerProgressBar: true,
-    didOpen: () => {
-      timerInterval = setInterval(() => {
-        const content = Swal.getContent()
-        if (content) {
-          const b = content.querySelector('b')
-          if (b) {
-            b.textContent = Swal.getTimerLeft()
-          }
-        }
-      }, 100)
-    },
-    willClose: () => {
-      clearInterval(timerInterval)
-    }
-  }).then((r) => {
-    
-  })
-})
 
 function signUp(){
   var email = document.getElementById("email_input").value;
