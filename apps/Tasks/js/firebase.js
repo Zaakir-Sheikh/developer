@@ -437,12 +437,6 @@ function refresh() {
   loadAll();
 }
 
-function compileHTML(e){
-  let result;
-  result = '<li> <label> <input type="checkbox" name=""> <p style="color: black;">' + e.name + '</p> <p class="timeTxt">' + e.time.formatted +' </p> <span> <button onclick="deleteTask(this.id)" id="' + e.identifier +'"> delete </button> </span> </label> </li>'
-  return result;
-}
-
 function loadTasks(day, ul) {
   firebase.auth().onAuthStateChanged(function(user) {
     if(user){
@@ -463,11 +457,17 @@ function loadTasks(day, ul) {
     }
 
     const createList = function(todos){
+      let spec = []
       todos.forEach(element => {
         if(element.days.includes(day)) {
-          $(ul).append(compileHTML(element));
+          $(ul).append('<li> <label> <input type="checkbox" name=""> <p style="color: black;">' + element.name + '</p> <p class="timeTxt">' + element.time.formatted +' </p> <span> <button onclick="deleteTask(this.id)" id="' + element.identifier +'"> delete </button> </span> </label> </li>');
+          spec.push(element.identifier);
         }
       })
+      if(spec.length === 0){
+        $(ul).append('<div class="noTasks"> <i class="fas fa-info-circle noTaskIcon"></i> <p class="noTaskText"> There is no tasks added for ' + day +'</p> </div>')
+        return;    
+      }
     }
   })
 }
