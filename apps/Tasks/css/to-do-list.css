@@ -147,3 +147,18 @@
     text-decoration: none !important;
     color: #969494 !important;
 }
+
+.noTaskIcon {
+    margin-left: 50%;
+    zoom: 2;
+    color: #bbbbbb;
+}
+
+.noTaskText {
+    display: flex;
+    justify-content: center;
+}
+
+.noTasks {
+    margin-top: 40px;
+}
