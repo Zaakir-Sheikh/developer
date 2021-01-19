@@ -375,14 +375,13 @@ function addItem() {
 }
 
 function loadAll() {
-  loadMonday()
-  loadTuesday()
-  loadWednesday()
-  loadThursday()
-  loadFriday()
-  loadSaturday()
-  loadSunday()
-  startPushJS()
+  loadTasks('monday', '.mondayUL')
+  loadTasks('tuesday', '.tuesdayUL')
+  loadTasks('wednesday', '.wednesdayUL')
+  loadTasks('thursday', '.thursdayUL')
+  loadTasks('friday', '.fridayUL')
+  loadTasks('saturday', '.saturdayUL')
+  loadTasks('sunday', '.sundayUL')
 }
 
 function deleteTask(clicked_id) {
@@ -444,8 +443,7 @@ function compileHTML(e){
   return result;
 }
 
-function loadMonday() {
-  startPushJS()
+function loadTasks(day, ul) {
   firebase.auth().onAuthStateChanged(function(user) {
     if(user){
       let todos = [];
@@ -466,226 +464,10 @@ function loadMonday() {
 
     const createList = function(todos){
       todos.forEach(element => {
-        if(element.days.includes('monday')) {
-          $('.mondayUL').append(compileHTML(element));
+        if(element.days.includes(day)) {
+          $(ul).append(compileHTML(element));
         }
       })
     }
   })
-}
-
-function loadTuesday() {
-  startPushJS()
-  firebase.auth().onAuthStateChanged(function(user) {
-    if(user){
-      let todos = [];
-      let renderTodos = function(){
-        db.collection(user.uid).get().then(data => {
-          data.docs.forEach(element => {
-            const singleTodo = element.data();
-            todos.push(singleTodo);
-          });
-          createList(todos);
-        })
-      }
-      renderTodos();
-
-    } else {
-      window.location="index.html";
-    }
-
-    const createList = function(todos){
-      todos.forEach(element => {
-        if(element.days.includes('tuesday')) {
-          $('.tuesdayUL').append(compileHTML(element));
-        }
-      })
-    }
-  })
-}
-
-function loadWednesday() {
-  startPushJS()
-  firebase.auth().onAuthStateChanged(function(user) {
-    if(user){
-      let todos = [];
-      let renderTodos = function(){
-        db.collection(user.uid).get().then(data => {
-          data.docs.forEach(element => {
-            const singleTodo = element.data();
-            todos.push(singleTodo);
-          });
-          createList(todos);
-        })
-      }
-      renderTodos();
-
-    } else {
-      window.location="index.html";
-    }
-
-    const createList = function(todos){
-      todos.forEach(element => {
-        if(element.days.includes('wednesday')) {
-          $('.wednesdayUL').append(compileHTML(element));
-        }
-      })
-    }
-  })
-}
-
-function loadThursday() {
-  startPushJS()
-  firebase.auth().onAuthStateChanged(function(user) {
-    if(user){
-      let todos = [];
-      let renderTodos = function(){
-        db.collection(user.uid).get().then(data => {
-          data.docs.forEach(element => {
-            const singleTodo = element.data();
-            todos.push(singleTodo);
-          });
-          createList(todos);
-        })
-      }
-      renderTodos();
-
-    } else {
-      window.location="index.html";
-    }
-
-    const createList = function(todos){
-      todos.forEach(element => {
-        if(element.days.includes('thursday')) {
-          $('.thursdayUL').append(compileHTML(element));
-        }
-      })
-    }
-  })
-}
-
-function loadFriday() {
-  startPushJS()
-  firebase.auth().onAuthStateChanged(function(user) {
-    if(user){
-      let todos = [];
-      let renderTodos = function(){
-        db.collection(user.uid).get().then(data => {
-          data.docs.forEach(element => {
-            const singleTodo = element.data();
-            todos.push(singleTodo);
-          });
-          createList(todos);
-        })
-      }
-      renderTodos();
-
-    } else {
-      window.location="index.html";
-    }
-
-    const createList = function(todos){
-      todos.forEach(element => {
-        if(element.days.includes('friday')) {
-          $('.fridayUL').append(compileHTML(element));
-        }
-      })
-    }
-  })
-}
-
-function loadSaturday() {
-  startPushJS()
-  firebase.auth().onAuthStateChanged(function(user) {
-    if(user){
-      let todos = [];
-      let renderTodos = function(){
-        db.collection(user.uid).get().then(data => {
-          data.docs.forEach(element => {
-            const singleTodo = element.data();
-            todos.push(singleTodo);
-          });
-          createList(todos);
-        })
-      }
-      renderTodos();
-
-    } else {
-      window.location="index.html";
-    }
-
-    const createList = function(todos){
-      todos.forEach(element => {
-        if(element.days.includes('saturday')) {
-          $('.saturdayUL').append(compileHTML(element));
-        }
-      })
-    }
-  })
-}
-
-function loadSunday() {
-  startPushJS()
-  firebase.auth().onAuthStateChanged(function(user) {
-    if(user){
-      let todos = [];
-      let renderTodos = function(){
-        db.collection(user.uid).get().then(data => {
-          data.docs.forEach(element => {
-            const singleTodo = element.data();
-            todos.push(singleTodo);
-          });
-          createList(todos);
-        })
-      }
-      renderTodos();
-
-    } else {
-      window.location="index.html";
-    }
-
-    const createList = function(todos){
-      todos.forEach(element => {
-        if(element.days.includes('sunday')) {
-          $('.sundayUL').append(compileHTML(element));
-        }
-      })
-    }
-  })
-}
-
-function startPushJS(){
-  const looppjs = function(){
-    firebase.auth().onAuthStateChanged(function(user) {
-      if(user){
-        let todos = [];
-        let renderTodos = function(){
-          db.collection(user.uid).get().then(data => {
-            data.docs.forEach(element => {
-              const singleTodo = element.data();
-              todos.push(singleTodo);
-            });
-            createList(todos);
-          })
-        }
-        renderTodos();
-  
-      } else {
-        window.location="index.html";
-      }
-  
-      const createList = function(todos){
-        todos.forEach(element => {
-          var d = new Date();
-          if(d.getHours() === element.time.hour && d.getMinutes() === element.time.minute){
-            
-          }
-        })
-      }
-    })
-    setTimeout(() => {
-      looppjs();
-    }, 60000);
-  }
-  looppjs();
 }
