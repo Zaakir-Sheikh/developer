@@ -465,7 +465,7 @@ function loadTasks(day, ul) {
         }
       })
       if(spec.length === 0){
-        $(ul).append('<div class="noTasks"> <i class="fas fa-info-circle noTaskIcon"></i> <p class="noTaskText"> There is no tasks added for ' + day +'</p> </div>')
+        $(ul).append('<div class="noTasks"> <i class="fas fa-info-circle noTaskIcon"></i> <p class="noTaskText">There is no tasks added for ' + day +'</p> </div>');
         return;    
       }
     }
