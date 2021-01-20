@@ -5,10 +5,12 @@ var firebaseConfig = {
   projectId: "to-do-list-app-c332f",
   storageBucket: "to-do-list-app-c332f.appspot.com",
   messagingSenderId: "298622339525",
-  appId: "1:298622339525:web:0bf8730e1ba88bcf13a3ac"
+  appId: "1:298622339525:web:0bf8730e1ba88bcf13a3ac",
+  measurementId: "G-FEFE2QZV1K"
 };
 firebase.initializeApp(firebaseConfig);
-const perf = firebase.performance();
+firebase.analytics();
+let perf = firebase.performance();
 let db = firebase.firestore();
 
 function signUp(){
