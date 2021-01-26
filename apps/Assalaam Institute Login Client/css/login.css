@@ -272,12 +272,17 @@ form.sign-in-form {
 
 @media (max-width: 870px) {
   .container {
-    min-height: 800px;
-    height: 100vh;
+    position: relative;
+    width: 0%;
+    background-color: #fff;
+    min-height: 0vh;
+    overflow: hidden;
+    visibility: hidden;
   }
+
   .signin-signup {
     width: 100%;
-    top: 95%;
+    top: 70%;
     transform: translate(-50%, -100%);
     transition: 1s 0.8s ease-in-out;
   }
