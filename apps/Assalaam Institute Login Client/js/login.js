@@ -64,5 +64,5 @@ function checkUser(UID, FILE) {
   }
 
 function login() {
-    
+    checkUser('uEcv5sBHqDfxVf0IiCkdBSzzITX2', 'users/abbas_alvi.html'); //abbas
 }
