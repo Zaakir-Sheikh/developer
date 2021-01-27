@@ -190,3 +190,8 @@ a.article:hover {
     color: white;
     zoom: 1.1;
 }
+
+.embedTable {
+    height: 100vh;
+    width: 100%;
+}
