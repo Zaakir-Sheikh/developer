@@ -66,4 +66,5 @@ function checkUser(UID, FILE) {
 function login() {
     checkUser('uEcv5sBHqDfxVf0IiCkdBSzzITX2', 'users/abbas_alvi.html'); //abbas
     checkUser('ppDqqgHmXchKk7dGS90hkQz9yUq1', 'users/abdussamad_siddiqi.html'); //abdussamad siddiqi
+    checkUser('yL8qHbpfUFZD7045BvYmZybtXR73', 'users/abdullah_malek.html'); //Abdullah Malek
 }
