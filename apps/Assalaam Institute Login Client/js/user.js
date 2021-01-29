@@ -17,11 +17,11 @@ $(document).ready(function () {
 });
 
 function loadUser() {
-    firebase.auth().onAuthStateChanged(function(user) {
-        if(!user){
-            window.location = "../index.html"
-        }
-    })
+  firebase.auth().onAuthStateChanged(function(user) {
+    if(!user){
+      window.location = "../index.html"
+    }
+  })
 }
 
 function logout() {
