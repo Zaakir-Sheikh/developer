@@ -77,4 +77,5 @@ function login() {
   checkUser('yL8qHbpfUFZD7045BvYmZybtXR73', 'users/abdullah_malek.html'); //Abdullah Malek
   checkUser('pts6EzfsQyQWhxD7onzvU4pBehh1', 'users/abdur-rafay_khan.html'); //Abdur-rafay Khan
   checkUser('S3Ti5aS9EmYKVNmSN0rSKj01H113', 'users/abuzar_poplazai.html'); //Abuzar
+  checkUser('lZt8XdMWpiarmnZmcrZQV48qem83', 'users/affan_shaikh.html'); //Affan Shaikh
 }
